@@ -1,0 +1,20 @@
+.title__desc {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 23px;
+  color: #f2f2f2;
+  margin: 45px 0 40px;
+}
+
+.img_b {
+  @media (max-width: $desktop) {
+    display: none;
+  }
+}
+.beer {
+  &__title {
+    background: url("/images/kashtan.svg") no-repeat center;
+    background-size: contain;
+  }
+}

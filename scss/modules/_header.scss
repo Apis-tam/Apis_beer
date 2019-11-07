@@ -1,0 +1,181 @@
+.head-nav {
+  background: url("/images/Front_bg.jpg") no-repeat top center;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
+  position: relative;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+
+  &__front {
+    height: 100vh;
+  }
+}
+
+.nav {
+  @include pos(fixed, $t: 0, $l: 0, $z: 99);
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+
+  overflow: hidden;
+
+  @media (max-width: $desktop) {
+    background: none;
+    right: 5%;
+    top: 25px;
+    left: auto;
+    width: 50px;
+  }
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  font-weight: 300;
+
+  @media (max-width: $desktop) {
+    display: none;
+  }
+
+  &__item {
+    font: 17px;
+    text-transform: uppercase;
+    margin: 0 30px;
+    text-align: center;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: #dbd9d9;
+    position: relative;
+    padding: 25px 0;
+    display: inline-block;
+    transition: all 0.3s;
+
+    &::before {
+      @include size(calc(100% + 6px), 2px);
+      @include pos($b: -30px, $l: -2px);
+      content: "";
+      background: #fff;
+      transition: all 0.3s;
+    }
+
+    &:hover {
+      color: #fff;
+
+      &::before {
+        bottom: 10px;
+        box-shadow: 0 3px 10px 2px #fff;
+      }
+    }
+  }
+}
+.burger-menu {
+  @mixin line($top: 0) {
+    @include size(100%, 6px);
+    background: #bebebe;
+    border-radius: 3px;
+    position: absolute;
+    top: $top;
+    transition: all 0.5s;
+  }
+  @include size(50px, 40px);
+  display: block;
+  position: relative;
+  @media (min-width: $desktop) {
+    display: none;
+  }
+
+  &::before {
+    @include line();
+    content: "";
+    transform-origin: 0 0;
+  }
+  &::after {
+    @include line(calc(100% - 6px));
+    content: "";
+    transform-origin: 0 100%;
+  }
+  span {
+    @include line(50%);
+
+    display: block;
+    transform: translateY(-50%);
+  }
+  &:hover {
+    span {
+      display: none;
+    }
+    &::before {
+      transform: rotate(47deg);
+
+      left: 3px;
+    }
+    &::after {
+      transform: rotate(-47deg);
+
+      left: 3px;
+    }
+  }
+}
+.logo {
+  width: 178.99px;
+  height: 124.93px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translate(0, -50%);
+}
+.log {
+  fill: #fff;
+}
+.title {
+  font-weight: 300;
+  font-size: 45px;
+}
+.bottle__img {
+  fill: #f2f2f2;
+}
+
+.bottle__svg {
+  width: 23.37px;
+  height: 77.01px;
+}
+.bottle_down {
+  display: inline-block;
+  transform: rotate(180deg);
+  position: absolute;
+  bottom: 80px;
+  animation: bottle 2s ease-in-out infinite;
+}
+@keyframes bottle {
+  0% {
+    bottom: 10%;
+  }
+  50% {
+    bottom: 7%;
+  }
+  100% {
+    bottom: 10%;
+  }
+}
+
+.bottle_down:hover {
+  animation: bottl 2s linear infinite;
+
+  @keyframes bottl {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
