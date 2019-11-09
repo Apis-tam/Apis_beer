@@ -1,4 +1,8 @@
 .head-nav {
+  @media (max-width: $mobile) {
+    background: url("../images/Front_bg_mobile.jpg") no-repeat top center;
+  }
+
   background: url("../images/Front_bg.jpg") no-repeat top center;
   background-size: cover;
   background-attachment: fixed;
@@ -20,15 +24,46 @@
   @include pos(fixed, $t: 0, $l: 0, $z: 99);
   width: 100%;
   background: rgba(0, 0, 0, 0.6);
-
   overflow: hidden;
 
   @media (max-width: $desktop) {
     background: none;
-    right: 5%;
-    top: 25px;
-    left: auto;
-    width: 50px;
+    position: static;
+  }
+}
+.navigation__menu {
+  @include pos(fixed, $t: 15px, $r: 3%, $z: 99);
+  background: none;
+  padding: 10px;
+  transition: all 0.3s;
+
+  @media (min-width: $desktop) {
+    display: none;
+  }
+}
+.navigation__input {
+  display: none;
+  &:checked {
+    + .navigation__menu {
+      right: 250px;
+      width: 56px;
+      .burger-menu {
+        span {
+          display: none;
+        }
+        &::before {
+          transform: rotate(47deg);
+          left: 3px;
+        }
+        &::after {
+          transform: rotate(-47deg);
+          left: 3px;
+        }
+      }
+    }
+    ~ .menu {
+      right: 0px;
+    }
   }
 }
 
@@ -38,7 +73,12 @@
   font-weight: 300;
 
   @media (max-width: $desktop) {
-    display: none;
+    @include pos(fixed, $z: 1, $t: 0, $r: -250px);
+    @include size(250px, 100%);
+    background: rgba(0, 0, 0, 0.9);
+    display: block;
+    transition: all 0.3s;
+    padding-top: 25px;
   }
 
   &__item {
@@ -55,6 +95,16 @@
     padding: 25px 0;
     display: inline-block;
     transition: all 0.3s;
+
+    @media (max-width: $desktop) {
+      display: block;
+      padding: 20px 0;
+      font-size: 18px;
+
+      &::before {
+        display: none;
+      }
+    }
 
     &::before {
       @include size(calc(100% + 6px), 2px);
@@ -74,6 +124,7 @@
     }
   }
 }
+
 .burger-menu {
   @mixin line($top: 0) {
     @include size(100%, 6px);
@@ -105,21 +156,6 @@
 
     display: block;
     transform: translateY(-50%);
-  }
-  &:hover {
-    span {
-      display: none;
-    }
-    &::before {
-      transform: rotate(47deg);
-
-      left: 3px;
-    }
-    &::after {
-      transform: rotate(-47deg);
-
-      left: 3px;
-    }
   }
 }
 .logo {

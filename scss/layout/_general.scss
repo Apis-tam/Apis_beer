@@ -64,3 +64,18 @@ h2 {
   color: #f2f2f2;
   margin-bottom: 23px;
 }
+.row {
+  @media (max-width: $desktop) {
+    margin-bottom: 0;
+  }
+}
+.col-12 {
+  @media (max-width: $desktop) {
+    margin-bottom: 20px;
+  }
+}
+.shadow_img {
+  @media (max-width: $desktop) {
+    order: 3;
+  }
+}
