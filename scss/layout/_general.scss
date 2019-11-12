@@ -45,6 +45,10 @@ img {
 }
 img:hover {
   box-shadow: 0 0 20px 1px #fff;
+
+  @media (max-width: $desktop) {
+    box-shadow: none;
+  }
 }
 h2 {
   font-style: normal;
@@ -72,10 +76,5 @@ h2 {
 .col-12 {
   @media (max-width: $desktop) {
     margin-bottom: 20px;
-  }
-}
-.shadow_img {
-  @media (max-width: $desktop) {
-    order: 3;
   }
 }
