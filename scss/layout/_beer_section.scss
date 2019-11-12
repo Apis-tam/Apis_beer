@@ -6,9 +6,14 @@
   color: #f2f2f2;
   margin: 45px 0 40px;
 }
-
+.col-md-3 {
+  @media (min-width: 800px) and (max-width: 940px) {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
 .img_b {
-  @media (max-width: $desktop) {
+  @media (max-width: 845px) {
     display: none;
   }
 }

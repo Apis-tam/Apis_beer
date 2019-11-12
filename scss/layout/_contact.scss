@@ -56,6 +56,10 @@ input {
   margin-bottom: 70px;
   transition: all 0.5s;
 
+  @media (max-width: $mobile) {
+    padding-left: 0;
+  }
+
   &__link {
     margin: 0 5px;
   }
@@ -73,6 +77,10 @@ input {
   transition: all 0.3s;
   margin-bottom: 20px;
   margin-left: 30px;
+
+  @media (max-width: $mobile) {
+    margin-left: 0;
+  }
 
   &__link {
     text-decoration: none;
@@ -100,9 +108,7 @@ option {
   color: #f2f2f2;
   transition: all 0.4s;
   width: calc(100% - 15px);
-  font-family: $roboto, sans-serif;
-  font-weight: 300;
-  font-size: 16px;
+  font: 15px, $roboto;
 }
 .button_submit:hover {
   background: #f2f2f2;

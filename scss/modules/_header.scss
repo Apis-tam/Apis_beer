@@ -134,7 +134,7 @@
     top: $top;
     transition: all 0.5s;
   }
-  @include size(50px, 40px);
+  @include size(50px, 30.8px);
   display: block;
   position: relative;
   @media (min-width: $desktop) {
